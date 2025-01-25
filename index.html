@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movile Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .banner {
+            background: url('img/img.jpg') no-repeat center center/cover;
+            height: 60vh;
+            color: #f6f6f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .banner h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .banner p {
+            font-size: 18px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .services, .mission, .contact {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .services h2, .mission h2, .contact h2 {
+            margin-bottom: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        .services {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .services h2 {
+            margin-bottom: 20px;
+        }
+
+        .services .service {
+            display: inline-block;
+            margin: 20px;
+            padding: 20px;
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .services .service img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .services .service h3 {
+            margin-bottom: 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Movile Solutions</h1>
+        <nav>
+            <ul>
+                <li><a id="link-services" href="#services">Servicios</a></li>
+                <li><a id="link-mission" href="#mission">Mision</a></li>
+                <li><a id="link-contact" href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="banner">
+        <div>
+            <h2>Bienvenido a Movile Solutions</h2>
+            <p>Su socio de confianza en reparación y mantenimiento de computadoras.</p>
+        </div>
+    </div>
+
+    <section id="services" class="services hidden">
+        <section class="services" id="services">
+            <h2>Our Services</h2>
+            <div class="service">
+                <img src="img/img1.png" alt="Service 1">
+                <h3>Reparación de hardware</h3>
+                <p>Mantenimiento y Reparación de Computadoras Desktopy y Laptop.</p>
+            </div>
+            <div class="service">
+                <img src="img/img2.jpg" alt="Service 2">
+                <h3>Instalación de Software</h3>
+                <p>Instalamos Cualquier tipo de Software que el cliente desee o nececite.</p>
+            </div>
+            <div class="service">
+                <img src="img/img3.jpg" alt="Service 3">
+                <h3>Instalación de Programas para Camiones</h3>
+                <p>Instalamos programas para computadoras de camiones pequeños hasta transporte pesado.</p>
+            </div>
+        </section>        
+        </section>
+    
+
+    <section id="mission" class="mission">
+        <h2>Nuestra Misión</h2>
+        <p>En Movile Solutions, nuestra misión es brindar servicios de reparación de computadoras de la más alta calidad a nuestra comunidad, garantizando la satisfacción y confianza del cliente. Nuestro objetivo es ser la solución ideal para todas sus necesidades informáticas.</p>
+        <h2>Sobre Nosotros</h2>
+        <p>En Movile Solutions, nos apasiona la tecnología y entendemos lo importante que es para tu vida diaria y tu negocio. Con más de 10 años de experiencia en el mercado, nos hemos dedicado a ofrecer soluciones rápidas, confiables y asequibles para cualquier problema relacionado con tus equipos de cómputo.</p>
+    </section>
+
+    <section id="contact" class="contact hidden">
+        <h2>Contact Us</h2>
+        <p>Email: mobilesolution3@gmail.com</p>
+        <p>Phone: +1 (323) 335-4863</p>
+        <p>Address: 123 PC Repair Lane, Tech City</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Movile Solutions. Todos los Derechos Reservados.</p>
+    </footer>
+
+    <script>
+        // JavaScript to handle navigation
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = {
+                services: document.getElementById('services'),
+                contact: document.getElementById('contact'),
+                mission: document.getElementById('mission')
+            };
+
+            // Hide all sections except the banner and mission initially
+            Object.values(sections).forEach(section => {
+                if (!section.classList.contains('mission')) {
+                    section.classList.add('hidden');
+                }
+            });
+
+            // Add event listeners to navigation links
+            document.getElementById('link-services').addEventListener('click', (e) => {
+                e.preventDefault();
+                showSection('services');
+            });
+
+            document.getElementById('link-contact').addEventListener('click', (e) => {
+                e.preventDefault();
+                showSection('contact');
+            });
+
+            document.getElementById('link-mission').addEventListener('click', (e) => {
+                e.preventDefault();
+                showSection('mission');
+            });
+
+            function showSection(sectionId) {
+                // Hide all sections
+                Object.values(sections).forEach(section => section.classList.add('hidden'));
+                // Show the selected section
+                sections[sectionId].classList.remove('hidden');
+                // Scroll to the selected section
+                sections[sectionId].scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    </script>
+</body>
+</html>
